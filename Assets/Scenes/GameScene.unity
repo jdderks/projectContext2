@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
+  rotationSpeed: 1
   maxSpeed: 15
 --- !u!1 &150983689
 GameObject:
