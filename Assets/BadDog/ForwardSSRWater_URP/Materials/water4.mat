@@ -65,6 +65,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BGWATER_DISNEY_DIFFUSE: 0
+    - _BGWATER_ORTHO: 0
     - _BGWATER_SSR: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -74,7 +75,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _MainWaveBumpScale: 1
+    - _MainWaveBumpScale: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
