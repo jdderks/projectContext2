@@ -20,15 +20,48 @@ public class FetchQuestManager : MonoBehaviour
     private List<Community> communities = new List<Community>();
 
     [SerializeField]
-    private Community communityToGoTo;
+    private FetchQuest currentQuest;
 
+    [SerializeField]
+    private Community currentTarget;
 
-    private void Start()
+    [Button(enabledMode: EButtonEnableMode.Playmode)]
+    private void StartRandomQuest()
     {
-
+        currentQuest = Quests[Random.Range(0, Quests.Count)];
+        if (currentQuest.CommunitiesAreRandom)
+        {
+            int random1 = Random.Range(0, communities.Count);
+            int random2 = Random.Range(0, communities.Count);
+            if (random1 == random2)
+            {
+                if (random2 > communities.Count)
+                {
+                    random2 = 0;
+                } else
+                {
+                    random2++;
+                }
+                
+            }
+            currentQuest.communityToDeliverTo = communities[random1];
+            currentQuest.communityToGetFrom = communities[random2];
+        }
+        currentQuest.currentStep = FetchQuestSteps.notRetreived;
     }
 
-    [Button]
+    private void Update()
+    {
+        if (currentQuest)
+        {
+            if (currentQuest.currentStep == FetchQuestSteps.notRetreived)
+            {
+                currentTarget = currentQuest.communityToGetFrom;
+            }
+        }
+    }
+
+    [Button(enabledMode: EButtonEnableMode.Editor)]
     private void UpdateCommunitiesList()
     {
         GameObject[] _communities = GameObject.FindGameObjectsWithTag("Community");
@@ -41,9 +74,5 @@ public class FetchQuestManager : MonoBehaviour
             }
         }
     }
-    [Button]
-    private void ClearCommunitiesList()
-    {
-        communities = new List<Community>();
-    }
+
 }

@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
+public enum FetchQuestSteps
+{
+    notRetreived = 0,
+    retrieved = 1,
+    delivered = 2
+}
 
 [CreateAssetMenu(fileName = "Data", menuName ="ScriptableObjects/Quest")]
 public class FetchQuest : ScriptableObject
@@ -19,4 +25,6 @@ public class FetchQuest : ScriptableObject
     public Community communityToGetFrom;
     [DisableIf("CommunitiesAreRandom")]
     public Community communityToDeliverTo;
+
+    public FetchQuestSteps currentStep = FetchQuestSteps.notRetreived;
 }
