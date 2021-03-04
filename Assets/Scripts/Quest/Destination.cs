@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Community : MonoBehaviour
+public class Destination : MonoBehaviour
 {
     [SerializeField]
-    private string communityName;
+    private string destinationName;
     [SerializeField]
     private int workProgress = 0;
-    public string CommunityName { get => communityName; set => communityName = value; }
+    public string CommunityName { get => destinationName; set => destinationName = value; }
     public int WorkProgress { get => workProgress; set => workProgress = value; }
 
     private void OnTriggerStay(Collider other)

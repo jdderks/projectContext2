@@ -19,12 +19,12 @@ public class FetchQuest : ScriptableObject
     [ResizableTextArea]
     public string FlavorText = "Default";
 
-    public bool CommunitiesAreRandom = false;
+    public bool DestinationsAreRandom = false;
 
     [DisableIf("CommunitiesAreRandom")]
-    public Community communityToGetFrom;
+    public Destination communityToGetFrom;
     [DisableIf("CommunitiesAreRandom")]
-    public Community communityToDeliverTo;
+    public Destination communityToDeliverTo;
 
     public FetchQuestSteps currentStep = FetchQuestSteps.notRetreived;
 }

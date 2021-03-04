@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WindMillParts
   m_EditorClassIdentifier: 
   FlavorText: Deliver the windmill parts
-  CommunitiesAreRandom: 1
+  DestinationsAreRandom: 0
   communityToGetFrom: {fileID: 0}
   communityToDeliverTo: {fileID: 0}
   currentStep: 0
