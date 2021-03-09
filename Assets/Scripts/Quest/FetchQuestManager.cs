@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.UI;
+
 
 public class FetchQuestManager : MonoBehaviour
 {
-    
-    [Header("Quests")]
     [SerializeField]
     [ProgressBar("Quest Progress", 100, EColor.Red)]
     private float questProgress = 0;
 
+    [Header("Quests")]
     [SerializeField]
-
     private List<FetchQuest> Quests = new List<FetchQuest>();
 
     [Header("Communities")]
@@ -24,6 +24,19 @@ public class FetchQuestManager : MonoBehaviour
 
     [SerializeField]
     private Destination currentDestination;
+
+    [ReorderableList]
+    public List<Technology> Techs = new List<Technology>();
+
+    public static FetchQuestManager instance;
+
+    private void Awake()
+    {
+        if (!instance || instance != this)
+        {
+            instance = this;
+        }
+    }
 
     [Button(enabledMode: EButtonEnableMode.Playmode)]
     private void StartRandomQuest()
@@ -74,5 +87,13 @@ public class FetchQuestManager : MonoBehaviour
             }
         }
     }
+}
 
+[System.Serializable]
+public class Technology
+{
+    public string name;
+    [HideInInspector]
+    public bool active;
+    public Image logo;
 }

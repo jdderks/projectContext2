@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Destination : MonoBehaviour
 {
+
+    public List<Technology> currentTechnologies = FetchQuestManager.instance.Techs;
+    
+    
     [SerializeField]
     private string destinationName;
     [SerializeField]
