@@ -4,22 +4,35 @@ using UnityEngine;
 
 public class Destination : MonoBehaviour
 {
-
-    public List<Technology> currentTechnologies = FetchQuestManager.instance.Techs;
-    
-    
     [SerializeField]
     private string destinationName;
     [SerializeField]
-    private int workProgress = 0;
+    private bool playerIsHere;
+
+    private bool playerIsNotMoving;
+
+
     public string CommunityName { get => destinationName; set => destinationName = value; }
-    public int WorkProgress { get => workProgress; set => workProgress = value; }
+    public bool PlayerIsHere { get => playerIsHere; set => playerIsHere = value; }
 
     private void OnTriggerStay(Collider other)
     {
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
         if (other.gameObject.CompareTag("Player"))
         {
-            workProgress++;
+            playerIsHere = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerIsHere = false;
         }
     }
 
