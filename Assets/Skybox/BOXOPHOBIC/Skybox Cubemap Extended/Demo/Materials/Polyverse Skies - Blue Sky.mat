@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Polyverse Skies - Blue Sky
   m_Shader: {fileID: 4800000, guid: 82881a2d011b0964696411c822cdd00b, type: 3}
-  m_ShaderKeywords: _ENABLEROTATION_ON
+  m_ShaderKeywords: _ENABLEFOG_ON _ENABLEROTATION_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -26,15 +26,15 @@ Material:
     m_Floats:
     - _CubemapPosition: -0.1
     - _Cubemapp: 1
-    - _EnableFog: 0
+    - _EnableFog: 1
     - _EnableRotation: 1
     - _Exposure: 1
-    - _FogFill: 0.5
+    - _FogFill: 0.06
     - _FogHeight: 1
-    - _FogIntensity: 1
+    - _FogIntensity: 0
     - _FogMessage: 0
     - _FogPosition: 0
-    - _FogSmoothness: 0.01
+    - _FogSmoothness: 1
     - _Fogg: 1
     - _IsStandardPipeline: 1
     - _Rotation: 0
@@ -42,4 +42,4 @@ Material:
     - _Rotationn: 1
     - _SkyboxExtended: 1
     m_Colors:
-    - _TintColor: {r: 1, g: 0.6433533, b: 0.48627448, a: 1}
+    - _TintColor: {r: 0.9716981, g: 0.66285545, b: 0.5271004, a: 1}
