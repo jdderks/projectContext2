@@ -4,6 +4,18 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
 
+/*
+[CustomPropertyDrawer(typeof(Destination))] 
+public class DestinationDrawer : PropertyDrawer
+{
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+
+        GUI.Label(position, new GUIContent("TEST"));
+        //EditorGUILayout.LabelField("TEST");
+	}
+}
+*/
+
 [CustomEditor(typeof(FetchQuestManager))]
 public class FetchQuestManagerEditor : Editor
 {
@@ -11,8 +23,7 @@ public class FetchQuestManagerEditor : Editor
 
     ReorderableList questList;
 
-    
-
+    static Dictionary<int, int> heights = new Dictionary<int, int>();
 
     private void OnEnable()
     {
@@ -21,7 +32,7 @@ public class FetchQuestManagerEditor : Editor
 
         questList.drawElementCallback = DrawQuestListItems;
         questList.drawHeaderCallback = DrawQuestHeader;
-
+        questList.elementHeightCallback = DrawHeight;
     }
     public override void OnInspectorGUI()
     {
@@ -29,9 +40,6 @@ public class FetchQuestManagerEditor : Editor
         base.OnInspectorGUI();
         serializedObject.Update();
         questList.DoLayoutList();
-
-        
-
         serializedObject.ApplyModifiedProperties();
     }
 
@@ -66,13 +74,48 @@ public class FetchQuestManagerEditor : Editor
         );
 
         //EditorGUILayout.PropertyField(destList, true);
-        EditorGUI.PropertyField(new Rect(rect.x + 455, rect.y, 20, EditorGUIUtility.singleLineHeight),
-            destList);
+        if (EditorGUI.PropertyField(new Rect(rect.x + 455, rect.y, 20, EditorGUIUtility.singleLineHeight), destList))
+        {
+            if (destList.arraySize <= 0)
+            {
+                EditorGUI.LabelField(new Rect(rect.x + 455, rect.y + 20, 250f, EditorGUIUtility.singleLineHeight), "You have not assigned any destinations");
+                heights[index] = 20;
+            }
 
+            for (int i = 0; i < destList.arraySize; ++i)
+            {
+                SerializedProperty destination = destList.GetArrayElementAtIndex(i);
+
+                SerializedProperty destName = destination.FindPropertyRelative("destinationName");
+
+                Destination d = destination.objectReferenceValue as Destination;
+
+                if (d != null)
+                {
+                    EditorGUI.LabelField(new Rect(rect.x + 455, rect.y + 20 + 20 * i, 100f, EditorGUIUtility.singleLineHeight), d.destinationName);
+                    if (GUI.Button(new Rect(rect.x + 550, rect.y + 20 + 20 * i, 15f, EditorGUIUtility.singleLineHeight),"-"))
+                    {
+                        var elementProperty = destList.GetArrayElementAtIndex(i);
+                        if (destList.GetArrayElementAtIndex(i).objectReferenceValue != null)
+                        {
+                            destList.GetArrayElementAtIndex(i).objectReferenceValue = null;
+                        }
+                        destList.DeleteArrayElementAtIndex(i);
+                    }
+                }
+            }
+            heights[index] = destList.arraySize * 20;
+        }
+        else
+        {
+            heights[index] = 0;
+        }
+        GUI.enabled = false;
         EditorGUI.Toggle(
-            new Rect(rect.x + 520, rect.y, 20, EditorGUIUtility.singleLineHeight),
+            new Rect(rect.x + 600, rect.y, 20, EditorGUIUtility.singleLineHeight),
             element.FindPropertyRelative("isDone").boolValue
         );
+        GUI.enabled = true;
 
 
     }
@@ -81,5 +124,15 @@ public class FetchQuestManagerEditor : Editor
     {
         string name = "Quests";
         EditorGUI.LabelField(rect, name);
+    }
+
+    public float DrawHeight(int index)
+    {
+
+        if (heights.ContainsKey(index))
+        {
+            return 20 + heights[index];
+        }
+        else return 20;
     }
 }

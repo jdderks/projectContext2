@@ -1,19 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Destination : MonoBehaviour
 {
     [SerializeField]
-    private string destinationName;
+    public string destinationName;
+
+    [SerializeField]
+    private TextMeshProUGUI destinationText;
     [SerializeField]
     private bool playerIsHere;
 
     private bool playerIsNotMoving;
 
+    public bool hasWind = false;
+    public bool hasSunLight = false;
 
     public string CommunityName { get => destinationName; set => destinationName = value; }
     public bool PlayerIsHere { get => playerIsHere; set => playerIsHere = value; }
+
+    private void Awake()
+    {
+        if (destinationText != null)
+        {
+            destinationText.text = destinationName;
+        }
+    }
 
     private void OnTriggerStay(Collider other)
     {

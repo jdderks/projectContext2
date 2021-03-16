@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class DialogueManager : MonoBehaviour
+using TMPro;
+public class DestinationText : MonoBehaviour
 {
-    
+
+
+
 }
