@@ -7,7 +7,8 @@ using UnityEngine;
 [System.Serializable]
 public class FetchQuest
 {
-    public enum QuestTypes{
+    public enum QuestTypes
+    {
         DeliverFromTo,
         Travel,
         Tutorial,
@@ -16,10 +17,14 @@ public class FetchQuest
 
     public string questName;
     public QuestTypes types;
+
+    public Destination homeDestination = null;
+
     public List<Destination> destinations;
     public int currentDestinationNumber;
     public bool isDone;
 
     public bool isLookingForWind = false;
     public bool isLookingForSunlight = false;
+    public bool isLookingForWater = false;
 }

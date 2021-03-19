@@ -18,6 +18,7 @@ public class Destination : MonoBehaviour
 
     public bool hasSunlight;
     public bool hasWind;
+    public bool hasWater;
 
     //These variables will do something in the future.
     public Resources currentResource;

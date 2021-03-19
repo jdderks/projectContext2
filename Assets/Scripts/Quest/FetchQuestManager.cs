@@ -63,20 +63,24 @@ public class FetchQuestManager : MonoBehaviour
                     break;
                 case FetchQuest.QuestTypes.Tutorial:
 
+
                     break;
                 case FetchQuest.QuestTypes.GoToCondition:
                     for (int i = 0; i < CurrentQuest.destinations.Count; i++)
                     {
                         if (CurrentQuest.destinations[i].PlayerIsHere && CurrentQuest.currentDestinationNumber == i)
                         {
-                            if (CurrentQuest.isLookingForSunlight && CurrentQuest.destinations[i].hasSunlight)
+                            if (CurrentQuest.isLookingForSunlight == CurrentQuest.destinations[i].hasSunlight && 
+                                CurrentQuest.isLookingForWind == CurrentQuest.destinations[i].hasWind &&
+                                CurrentQuest.isLookingForWater == currentQuest.destinations[i].hasWater)
                             {
-                                
-                            }
-
-                            if (CurrentQuest.isLookingForWind && CurrentQuest.destinations[i].hasWind)
-                            {
-
+                                CurrentQuest.currentDestinationNumber++;
+                                if (CurrentQuest.currentDestinationNumber == currentQuest.destinations.Count)
+                                    {
+                                        currentQuest.isDone = true;
+                                        currentQuest = null;
+                                        break;
+                                    }
                             }
                         }
                     }

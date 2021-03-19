@@ -2444,7 +2444,7 @@ PrefabInstance:
     - target: {fileID: 1795152379872585769, guid: d8eefd914e90f514ea5b633acc65c3e5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1795152379872585769, guid: d8eefd914e90f514ea5b633acc65c3e5,
         type: 3}
@@ -3265,7 +3265,7 @@ PrefabInstance:
     - target: {fileID: 1099571259470166284, guid: 6cca756b8f30a044c8ef2c439de04b94,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -434.83
+      value: -533.52
       objectReference: {fileID: 0}
     - target: {fileID: 1099571259470166285, guid: 6cca756b8f30a044c8ef2c439de04b94,
         type: 3}
@@ -3315,7 +3315,7 @@ PrefabInstance:
     - target: {fileID: 1099571259646564989, guid: 6cca756b8f30a044c8ef2c439de04b94,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -342.61
+      value: -441.3
       objectReference: {fileID: 0}
     - target: {fileID: 1099571259949489453, guid: 6cca756b8f30a044c8ef2c439de04b94,
         type: 3}
@@ -3366,6 +3366,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_margin.x
       value: -16.282581
+      objectReference: {fileID: 0}
+    - target: {fileID: 1099571260153843134, guid: 6cca756b8f30a044c8ef2c439de04b94,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 418.85895
+      objectReference: {fileID: 0}
+    - target: {fileID: 1099571260153843134, guid: 6cca756b8f30a044c8ef2c439de04b94,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 418.85895
       objectReference: {fileID: 0}
     - target: {fileID: 1099571260153843134, guid: 6cca756b8f30a044c8ef2c439de04b94,
         type: 3}
@@ -3505,12 +3515,12 @@ PrefabInstance:
     - target: {fileID: 1099571260565612324, guid: 6cca756b8f30a044c8ef2c439de04b94,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 315.46948
+      value: 409.2826
       objectReference: {fileID: 0}
     - target: {fileID: 1099571260565612324, guid: 6cca756b8f30a044c8ef2c439de04b94,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 315.46948
+      value: 409.2826
       objectReference: {fileID: 0}
     - target: {fileID: 1099571260565612324, guid: 6cca756b8f30a044c8ef2c439de04b94,
         type: 3}
@@ -3530,12 +3540,12 @@ PrefabInstance:
     - target: {fileID: 1099571260565612324, guid: 6cca756b8f30a044c8ef2c439de04b94,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -7.350006
+      value: -10.5
       objectReference: {fileID: 0}
     - target: {fileID: 1099571260565612324, guid: 6cca756b8f30a044c8ef2c439de04b94,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 9.25
+      value: 12.4
       objectReference: {fileID: 0}
     - target: {fileID: 1099571260768900288, guid: 6cca756b8f30a044c8ef2c439de04b94,
         type: 3}
@@ -4144,7 +4154,7 @@ PrefabInstance:
     - target: {fileID: 1795152379872585769, guid: d8eefd914e90f514ea5b633acc65c3e5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1795152379872585769, guid: d8eefd914e90f514ea5b633acc65c3e5,
         type: 3}
@@ -4294,7 +4304,7 @@ PrefabInstance:
     - target: {fileID: 1795152379872585769, guid: d8eefd914e90f514ea5b633acc65c3e5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1795152379872585769, guid: d8eefd914e90f514ea5b633acc65c3e5,
         type: 3}
@@ -10050,7 +10060,7 @@ PrefabInstance:
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
@@ -10060,12 +10070,17 @@ PrefabInstance:
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].types
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[2].types
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
+        type: 3}
+      propertyPath: Quests.Array.data[3].types
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
@@ -10079,39 +10094,84 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
-      propertyPath: Quests.Array.data[1].questName
+      propertyPath: Quests.Array.data[0].questName
       value: Get the flag
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
+      propertyPath: Quests.Array.data[1].questName
+      value: Bring solar panels to sunny communities
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
+        type: 3}
       propertyPath: Quests.Array.data[2].questName
-      value: Deliver the solar panels
+      value: Get the flag
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
-      propertyPath: Quests.Array.data[0].destinations.Array.size
-      value: 4
+      propertyPath: Quests.Array.data[3].questName
+      value: Get the flag
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
-      propertyPath: Quests.Array.data[1].destinations.Array.size
+      propertyPath: Quests.Array.data[1].homeDestination
+      value: 
+      objectReference: {fileID: 584427676}
+    - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
+        type: 3}
+      propertyPath: Quests.Array.data[2].homeDestination
+      value: 
+      objectReference: {fileID: 235729959}
+    - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
+        type: 3}
+      propertyPath: Quests.Array.data[1].isLookingForWind
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
-      propertyPath: Quests.Array.data[2].destinations.Array.size
+      propertyPath: Quests.Array.data[2].isLookingForWind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
+        type: 3}
+      propertyPath: Quests.Array.data[1].isLookingForWater
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
+        type: 3}
+      propertyPath: Quests.Array.data[2].isLookingForWater
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
+        type: 3}
+      propertyPath: Quests.Array.data[1].isLookingForSunlight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
+        type: 3}
+      propertyPath: Quests.Array.data[0].destinations.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
+        type: 3}
+      propertyPath: Quests.Array.data[1].destinations.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
+        type: 3}
+      propertyPath: Quests.Array.data[2].destinations.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[0].destinations.Array.data[0]
       value: 
-      objectReference: {fileID: 235729959}
+      objectReference: {fileID: 739558991}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[0].destinations.Array.data[1]
       value: 
-      objectReference: {fileID: 739558991}
+      objectReference: {fileID: 584427676}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[0].destinations.Array.data[2]
@@ -10126,7 +10186,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Quests.Array.data[1].destinations.Array.data[0]
       value: 
-      objectReference: {fileID: 739558991}
+      objectReference: {fileID: 235729959}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].destinations.Array.data[1]
@@ -10151,17 +10211,17 @@ PrefabInstance:
         type: 3}
       propertyPath: Quests.Array.data[2].destinations.Array.data[0]
       value: 
-      objectReference: {fileID: 739558991}
+      objectReference: {fileID: 235729959}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[2].destinations.Array.data[1]
       value: 
-      objectReference: {fileID: 584427676}
+      objectReference: {fileID: 739558991}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[2].destinations.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 584427676}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[2].destinations.Array.data[3]
@@ -10281,6 +10341,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloatingCommunity
       objectReference: {fileID: 0}
+    - target: {fileID: 3318047539878582363, guid: 245312f9cd3ff054f9c35f0f2438937e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b382879a243696f4b9ef5fa06631e056,
+        type: 3}
     - target: {fileID: 3884956449931352813, guid: 245312f9cd3ff054f9c35f0f2438937e,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -10340,6 +10406,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460031353992586607, guid: 245312f9cd3ff054f9c35f0f2438937e,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -0.10000038
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460031353992586607, guid: 245312f9cd3ff054f9c35f0f2438937e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -55.049828
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460031353992586607, guid: 245312f9cd3ff054f9c35f0f2438937e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.049999237
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460031353992586607, guid: 245312f9cd3ff054f9c35f0f2438937e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -27.524914
       objectReference: {fileID: 0}
     - target: {fileID: 6354800436484904747, guid: 245312f9cd3ff054f9c35f0f2438937e,
         type: 3}
