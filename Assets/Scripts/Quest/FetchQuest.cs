@@ -8,10 +8,10 @@ using UnityEngine;
 public class FetchQuest
 {
     public enum QuestTypes{
-        FetchSomething,
         DeliverFromTo,
         Travel,
-        Tutorial
+        Tutorial,
+        GoToCondition
     }
 
     public string questName;
@@ -19,4 +19,7 @@ public class FetchQuest
     public List<Destination> destinations;
     public int currentDestinationNumber;
     public bool isDone;
+
+    public bool isLookingForWind = false;
+    public bool isLookingForSunlight = false;
 }

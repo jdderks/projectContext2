@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
+
+
+
 public class Destination : MonoBehaviour
 {
     [SerializeField]
@@ -12,10 +16,14 @@ public class Destination : MonoBehaviour
     [SerializeField]
     private bool playerIsHere;
 
-    private bool playerIsNotMoving;
+    public bool hasSunlight;
+    public bool hasWind;
 
-    public bool hasWind = false;
-    public bool hasSunLight = false;
+    //These variables will do something in the future.
+    public Resources currentResource;
+
+    [SerializeField]
+    public UnityEvent destinationEvent = null;
 
     public string CommunityName { get => destinationName; set => destinationName = value; }
     public bool PlayerIsHere { get => playerIsHere; set => playerIsHere = value; }

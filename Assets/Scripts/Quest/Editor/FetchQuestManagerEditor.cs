@@ -3,23 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
+using UnityEngine.Events;
 
-/*
-[CustomPropertyDrawer(typeof(Destination))] 
-public class DestinationDrawer : PropertyDrawer
-{
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+//TODO: Look up GUIContent flexible width
 
-        GUI.Label(position, new GUIContent("TEST"));
-        //EditorGUILayout.LabelField("TEST");
-	}
-}
-*/
+
 
 [CustomEditor(typeof(FetchQuestManager))]
 public class FetchQuestManagerEditor : Editor
 {
+    FetchQuestManager manager;
+
     SerializedProperty quest;
+
 
     ReorderableList questList;
 
@@ -27,6 +23,9 @@ public class FetchQuestManagerEditor : Editor
 
     private void OnEnable()
     {
+        manager = (FetchQuestManager)target;
+
+
         quest = serializedObject.FindProperty("Quests");
         questList = new ReorderableList(serializedObject, quest, true, true, true, true);
 
@@ -36,8 +35,15 @@ public class FetchQuestManagerEditor : Editor
     }
     public override void OnInspectorGUI()
     {
+        //This doesn't work yet :( so you're going to have to still use the field from the base.OnInspectorGUI for now...
+        manager.Player = (GameObject)EditorGUILayout.ObjectField("The player gameobject", manager.Player, typeof(GameObject), true);
 
+
+        //exampleScript.exampleGO = (GameObject)EditorGUILayout.ObjectField("Example GO", exampleScript.exampleGO, typeOf(GameObject), true);
+        //script.Player = (GameObject)EditorGUI.ObjectField(new Rect(0, 0, 20, 20), "Find Dependency", script.Player, typeof(GameObject), true);
+        
         base.OnInspectorGUI();
+
         serializedObject.Update();
         questList.DoLayoutList();
         serializedObject.ApplyModifiedProperties();
@@ -45,11 +51,9 @@ public class FetchQuestManagerEditor : Editor
 
     void DrawQuestListItems(Rect rect, int index, bool isActive, bool isFocused)
     {
+
         SerializedProperty element = questList.serializedProperty.GetArrayElementAtIndex(index);
         SerializedProperty destList = element.FindPropertyRelative("destinations");
-
-        //var height = (questList.count + 3) * EditorGUIUtility.singleLineHeight;
-        //questList.DoList(new Rect(rect.x, rect.y, rect.width, height));
 
         //The Quest name
         EditorGUI.PropertyField(
@@ -73,27 +77,24 @@ public class FetchQuestManagerEditor : Editor
             GUIContent.none
         );
 
-        //EditorGUILayout.PropertyField(destList, true);
+        //Dropdown for each destination in a quest
         if (EditorGUI.PropertyField(new Rect(rect.x + 455, rect.y, 20, EditorGUIUtility.singleLineHeight), destList))
         {
-            if (destList.arraySize <= 0)
-            {
-                EditorGUI.LabelField(new Rect(rect.x + 455, rect.y + 20, 250f, EditorGUIUtility.singleLineHeight), "You have not assigned any destinations");
-                heights[index] = 20;
-            }
-
             for (int i = 0; i < destList.arraySize; ++i)
             {
                 SerializedProperty destination = destList.GetArrayElementAtIndex(i);
 
                 SerializedProperty destName = destination.FindPropertyRelative("destinationName");
 
+                SerializedProperty onEvent = destination.FindPropertyRelative("destinationEvent");
+
                 Destination d = destination.objectReferenceValue as Destination;
 
                 if (d != null)
                 {
+                    //TODO: Element spacing (replace 20 + 20 + 20 + 20 + 20 with something less arbitrary)
                     EditorGUI.LabelField(new Rect(rect.x + 455, rect.y + 20 + 20 * i, 100f, EditorGUIUtility.singleLineHeight), d.destinationName);
-                    if (GUI.Button(new Rect(rect.x + 550, rect.y + 20 + 20 * i, 15f, EditorGUIUtility.singleLineHeight),"-"))
+                    if (GUI.Button(new Rect(rect.x + 550, rect.y + 20 + 20 * i, 15f, EditorGUIUtility.singleLineHeight), "-"))
                     {
                         var elementProperty = destList.GetArrayElementAtIndex(i);
                         if (destList.GetArrayElementAtIndex(i).objectReferenceValue != null)
@@ -103,8 +104,24 @@ public class FetchQuestManagerEditor : Editor
                         destList.DeleteArrayElementAtIndex(i);
                     }
                 }
+
+
+                //EditorGUI.PropertyField(new Rect(rect.x + 700, rect.y, 120, EditorGUIUtility.singleLineHeight), onEvent, GUIContent.none);
+                if (GUI.Button(new Rect(rect.x + 580, rect.y + 20 + 20 * i, 150f, EditorGUIUtility.singleLineHeight), "Show Object"))
+                {
+                    UnityEditor.EditorGUIUtility.PingObject(d);
+                    //Highlighter.Highlight();
+                }
+
             }
+
             heights[index] = destList.arraySize * 20;
+
+            if (destList.arraySize <= 0)
+            {
+                EditorGUI.LabelField(new Rect(rect.x + 455, rect.y + 20, 250f, EditorGUIUtility.singleLineHeight), "You have not assigned any destinations");
+                heights[index] = 20;
+            }
         }
         else
         {

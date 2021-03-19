@@ -6,19 +6,19 @@ using UnityEngine.UI;
 
 public class FetchQuestManager : MonoBehaviour
 {
-    [SerializeField]
-    public Destination homeBase;
+
 
     [SerializeField]
-    private BoatController player;
+    private GameObject player;
 
     [Header("Quests")]
     public List<FetchQuest> Quests = new List<FetchQuest>();
 
     [HideInInspector]
-    private FetchQuest currentQuest;
+    private FetchQuest currentQuest = null;
 
     public FetchQuest CurrentQuest { get => currentQuest; set => currentQuest = value; }
+    public GameObject Player { get => player; set => player = value; }
 
     private void Start()
     {
@@ -32,31 +32,90 @@ public class FetchQuestManager : MonoBehaviour
 
     private void QuestProgress()
     {
-        if (CurrentQuest != null)
+        if (currentQuest != null)
         {
-            for (int i = 0; i < CurrentQuest.destinations.Count; i++)
+            switch (currentQuest.types)
             {
-                if (CurrentQuest.destinations[i].PlayerIsHere)
-                {
-                    if (CurrentQuest.currentDestinationNumber == i)
+                case FetchQuest.QuestTypes.DeliverFromTo:
+                    break;
+                case FetchQuest.QuestTypes.Travel:
+                    for (int i = 0; i < CurrentQuest.destinations.Count; i++)
                     {
-                        Debug.Log("Player arrived at at: " + CurrentQuest.destinations[i].CommunityName);
-                        if (player.GetComponent<Rigidbody>().velocity.x < 1 && player.GetComponent<Rigidbody>().velocity.z < 1)
+                        if (CurrentQuest.destinations[i].PlayerIsHere)
                         {
-                            Debug.Log("Player delivered at: " + CurrentQuest.destinations[i].CommunityName);
-                            CurrentQuest.currentDestinationNumber++;
-                            if (CurrentQuest.currentDestinationNumber == currentQuest.destinations.Count)
+                            if (CurrentQuest.currentDestinationNumber == i)
                             {
-                                currentQuest.isDone = true;
-                                currentQuest = null;
-                                break;
+                                Debug.Log("Player arrived at at: " + CurrentQuest.destinations[i].CommunityName);
+                                if (Player.GetComponent<Rigidbody>().velocity.x < 1 && Player.GetComponent<Rigidbody>().velocity.z < 1)
+                                {
+                                    Debug.Log("Player delivered at: " + CurrentQuest.destinations[i].CommunityName);
+                                    CurrentQuest.currentDestinationNumber++;
+                                    if (CurrentQuest.currentDestinationNumber == currentQuest.destinations.Count)
+                                    {
+                                        currentQuest.isDone = true;
+                                        currentQuest = null;
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }
-                }
+                    break;
+                case FetchQuest.QuestTypes.Tutorial:
+
+                    break;
+                case FetchQuest.QuestTypes.GoToCondition:
+                    for (int i = 0; i < CurrentQuest.destinations.Count; i++)
+                    {
+                        if (CurrentQuest.destinations[i].PlayerIsHere && CurrentQuest.currentDestinationNumber == i)
+                        {
+                            if (CurrentQuest.isLookingForSunlight && CurrentQuest.destinations[i].hasSunlight)
+                            {
+                                
+                            }
+
+                            if (CurrentQuest.isLookingForWind && CurrentQuest.destinations[i].hasWind)
+                            {
+
+                            }
+                        }
+                    }
+                    break;
+                default:
+                    break;
             }
         }
+
+
+        //TODO: Make this more readable by using &&
+        //ALTHOUGH: this loop has given me errors in some weird scenarios in other ways so I'm keeping it like this for now.
+
+        //if (CurrentQuest != null)
+        //{
+        //    for (int i = 0; i < CurrentQuest.destinations.Count; i++)
+        //    {
+        //        if (CurrentQuest.destinations[i].PlayerIsHere)
+        //        {
+        //            if (CurrentQuest.currentDestinationNumber == i)
+        //            {
+        //                Debug.Log("Player arrived at at: " + CurrentQuest.destinations[i].CommunityName);
+        //                if (Player.GetComponent<Rigidbody>().velocity.x < 1 && Player.GetComponent<Rigidbody>().velocity.z < 1)
+        //                {
+        //                    Debug.Log("Player delivered at: " + CurrentQuest.destinations[i].CommunityName);
+        //                    CurrentQuest.currentDestinationNumber++;
+        //                    if (CurrentQuest.currentDestinationNumber == currentQuest.destinations.Count)
+        //                    {
+        //                        currentQuest.isDone = true;
+        //                        currentQuest = null;
+        //                        break;
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
     }
+
     private FetchQuest GetNewAvailableQuest()
     {
         List<FetchQuest> availableQuests = new List<FetchQuest>();
@@ -68,7 +127,7 @@ public class FetchQuestManager : MonoBehaviour
                 availableQuests.Add(Quests[i]);
             }
         }
-        return availableQuests[Random.Range(0,availableQuests.Count)];
+        return availableQuests[Random.Range(0, availableQuests.Count)];
     }
- 
+
 }
