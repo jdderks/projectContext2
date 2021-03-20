@@ -1049,18 +1049,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf21ff07a7e7dcf4faee03652444f0a5, type: 3}
---- !u!114 &472578651 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7409065084287743379, guid: 13e0313163cd282439852b7089f96433,
-    type: 3}
-  m_PrefabInstance: {fileID: 7409065084242831084}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43bf13c5e518b9f4a846d5ab59270526, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &473697510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2824,6 +2812,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328175205047210820, guid: 245312f9cd3ff054f9c35f0f2438937e,
+        type: 3}
+      propertyPath: hasWater
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328175205047210820, guid: 245312f9cd3ff054f9c35f0f2438937e,
+        type: 3}
+      propertyPath: hasSunlight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328175205047210820, guid: 245312f9cd3ff054f9c35f0f2438937e,
+        type: 3}
+      propertyPath: playerIsHere
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2328175205047210820, guid: 245312f9cd3ff054f9c35f0f2438937e,
         type: 3}
@@ -9294,7 +9297,7 @@ PrefabInstance:
     - target: {fileID: 2328175205047210820, guid: 245312f9cd3ff054f9c35f0f2438937e,
         type: 3}
       propertyPath: hasWind
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2328175205047210820, guid: 245312f9cd3ff054f9c35f0f2438937e,
         type: 3}
@@ -10106,12 +10109,12 @@ PrefabInstance:
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[0].types
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].types
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
@@ -10136,12 +10139,12 @@ PrefabInstance:
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[0].questName
-      value: Get the flag
+      value: Bring wind turbine blades
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].questName
-      value: Bring solar panels to sunny communities
+      value: Get the flag
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
@@ -10155,9 +10158,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
-      propertyPath: Quests.Array.data[1].homeDestination
+      propertyPath: Quests.Array.data[0].homeDestination
       value: 
       objectReference: {fileID: 584427676}
+    - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
+        type: 3}
+      propertyPath: Quests.Array.data[1].homeDestination
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[2].homeDestination
@@ -10165,8 +10173,13 @@ PrefabInstance:
       objectReference: {fileID: 235729959}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
-      propertyPath: Quests.Array.data[1].isLookingForWind
+      propertyPath: Quests.Array.data[0].isLookingForWind
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
+        type: 3}
+      propertyPath: Quests.Array.data[1].isLookingForWind
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
@@ -10175,28 +10188,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
+      propertyPath: Quests.Array.data[0].isLookingForWater
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
+        type: 3}
       propertyPath: Quests.Array.data[1].isLookingForWater
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[2].isLookingForWater
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
+        type: 3}
+      propertyPath: Quests.Array.data[0].isLookingForSunlight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].isLookingForSunlight
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[0].destinations.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].destinations.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
@@ -10222,17 +10245,17 @@ PrefabInstance:
         type: 3}
       propertyPath: Quests.Array.data[0].destinations.Array.data[3]
       value: 
-      objectReference: {fileID: 472578651}
+      objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].destinations.Array.data[0]
       value: 
-      objectReference: {fileID: 235729959}
+      objectReference: {fileID: 739558991}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].destinations.Array.data[1]
       value: 
-      objectReference: {fileID: 739558991}
+      objectReference: {fileID: 584427676}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].destinations.Array.data[2]
@@ -10242,7 +10265,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Quests.Array.data[1].destinations.Array.data[3]
       value: 
-      objectReference: {fileID: 472578651}
+      objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].destinations.Array.data[4]
@@ -10300,7 +10323,7 @@ PrefabInstance:
     - target: {fileID: 2328175205047210820, guid: 245312f9cd3ff054f9c35f0f2438937e,
         type: 3}
       propertyPath: hasWind
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2328175205047210820, guid: 245312f9cd3ff054f9c35f0f2438937e,
         type: 3}
@@ -11325,5 +11348,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7409065083267217330, guid: 13e0313163cd282439852b7089f96433, type: 3}
+    - {fileID: 7409065084287743379, guid: 13e0313163cd282439852b7089f96433, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 13e0313163cd282439852b7089f96433, type: 3}

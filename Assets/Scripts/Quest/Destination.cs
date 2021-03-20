@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
-
-
+using UnityEngine.UI;
 
 public class Destination : MonoBehaviour
 {
@@ -19,6 +18,21 @@ public class Destination : MonoBehaviour
     public bool hasSunlight;
     public bool hasWind;
     public bool hasWater;
+
+    [SerializeField]
+    private Image waterImg;
+    [SerializeField]
+    private Image windImg;
+    [SerializeField]
+    private Image sunImg;
+    [Space]
+    public Sprite hasWaterSprite;
+    public Sprite hasWindSprite;
+    public Sprite hasSunSprite;
+    
+    public Sprite hasNoWaterSprite;
+    public Sprite hasNoWindSprite;
+    public Sprite hasNoSunSprite;
 
     //These variables will do something in the future.
     public Resources currentResource;
@@ -35,6 +49,13 @@ public class Destination : MonoBehaviour
         {
             destinationText.text = destinationName;
         }
+
+        waterImg.sprite = hasWater ? hasWaterSprite : hasNoWaterSprite;
+        windImg.sprite = hasWind ? hasWindSprite : hasNoWindSprite;
+        sunImg.sprite = hasSunlight ? hasSunSprite : hasNoSunSprite;
+
+
+
     }
 
     private void OnTriggerStay(Collider other)

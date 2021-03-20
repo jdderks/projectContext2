@@ -12,6 +12,8 @@ public class FetchQuestManager : MonoBehaviour
     private GameObject player;
 
     [Header("Quests")]
+    public List<Destination> AllDestinations = new List<Destination>();
+
     public List<FetchQuest> Quests = new List<FetchQuest>();
 
     [HideInInspector]
@@ -22,6 +24,7 @@ public class FetchQuestManager : MonoBehaviour
 
     private void Start()
     {
+        FillAllDestinationsList();
         CurrentQuest = Quests[0];
     }
 
@@ -52,8 +55,7 @@ public class FetchQuestManager : MonoBehaviour
                                     CurrentQuest.currentDestinationNumber++;
                                     if (CurrentQuest.currentDestinationNumber == currentQuest.destinations.Count)
                                     {
-                                        currentQuest.isDone = true;
-                                        currentQuest = null;
+                                        CompleteQuest();
                                         break;
                                     }
                                 }
@@ -66,21 +68,18 @@ public class FetchQuestManager : MonoBehaviour
 
                     break;
                 case FetchQuest.QuestTypes.GoToCondition:
-                    for (int i = 0; i < CurrentQuest.destinations.Count; i++)
+                    for (int i = 0; i < AllDestinations.Count; i++)
                     {
-                        if (CurrentQuest.destinations[i].PlayerIsHere && CurrentQuest.currentDestinationNumber == i)
+                        if (AllDestinations[i].PlayerIsHere)
                         {
-                            if (CurrentQuest.isLookingForSunlight == CurrentQuest.destinations[i].hasSunlight && 
-                                CurrentQuest.isLookingForWind == CurrentQuest.destinations[i].hasWind &&
-                                CurrentQuest.isLookingForWater == currentQuest.destinations[i].hasWater)
+                            Debug.Log("Looking for: Sun: " + CurrentQuest.isLookingForSunlight + " Wind: " + CurrentQuest.isLookingForWind + " Water: " + CurrentQuest.isLookingForWater);
+                            Debug.Log("Here be:          " + AllDestinations[i].hasSunlight    + " Wind: " + AllDestinations[i].hasWind    + " Water: " + AllDestinations[i].hasWater);
+                            if (CurrentQuest.isLookingForSunlight == AllDestinations[i].hasSunlight &&
+                                CurrentQuest.isLookingForWind == AllDestinations[i].hasWind &&
+                                CurrentQuest.isLookingForWater == AllDestinations[i].hasWater)
                             {
-                                CurrentQuest.currentDestinationNumber++;
-                                if (CurrentQuest.currentDestinationNumber == currentQuest.destinations.Count)
-                                    {
-                                        currentQuest.isDone = true;
-                                        currentQuest = null;
-                                        break;
-                                    }
+                                CompleteQuest();
+                                break;
                             }
                         }
                     }
@@ -89,35 +88,6 @@ public class FetchQuestManager : MonoBehaviour
                     break;
             }
         }
-
-
-        //TODO: Make this more readable by using &&
-        //ALTHOUGH: this loop has given me errors in some weird scenarios in other ways so I'm keeping it like this for now.
-
-        //if (CurrentQuest != null)
-        //{
-        //    for (int i = 0; i < CurrentQuest.destinations.Count; i++)
-        //    {
-        //        if (CurrentQuest.destinations[i].PlayerIsHere)
-        //        {
-        //            if (CurrentQuest.currentDestinationNumber == i)
-        //            {
-        //                Debug.Log("Player arrived at at: " + CurrentQuest.destinations[i].CommunityName);
-        //                if (Player.GetComponent<Rigidbody>().velocity.x < 1 && Player.GetComponent<Rigidbody>().velocity.z < 1)
-        //                {
-        //                    Debug.Log("Player delivered at: " + CurrentQuest.destinations[i].CommunityName);
-        //                    CurrentQuest.currentDestinationNumber++;
-        //                    if (CurrentQuest.currentDestinationNumber == currentQuest.destinations.Count)
-        //                    {
-        //                        currentQuest.isDone = true;
-        //                        currentQuest = null;
-        //                        break;
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
     }
 
     private FetchQuest GetNewAvailableQuest()
@@ -134,4 +104,18 @@ public class FetchQuestManager : MonoBehaviour
         return availableQuests[Random.Range(0, availableQuests.Count)];
     }
 
+    private void CompleteQuest()
+    {
+        currentQuest.isDone = true;
+        currentQuest = null;
+    }
+
+    private void FillAllDestinationsList()
+    {
+        Destination[] dests = FindObjectsOfType<Destination>();
+        for (int i = 0; i < dests.Length; i++)
+        {
+            AllDestinations.Add(dests[i]);
+        }
+    }
 }

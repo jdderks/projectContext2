@@ -73,8 +73,6 @@ public class FetchQuestManagerEditor : Editor
 
         if (manager.Quests[index].types == FetchQuest.QuestTypes.Travel)
         {
-
-
             //The text part of the Destination part
             EditorGUI.LabelField(new Rect(rect.x + 290, rect.y, 200, EditorGUIUtility.singleLineHeight), "Destination Number:");
 
@@ -144,9 +142,6 @@ public class FetchQuestManagerEditor : Editor
         }
         else if (manager.Quests[index].types == FetchQuest.QuestTypes.GoToCondition)
         {
-            EditorGUI.LabelField(new Rect(rect.x + 290, rect.y, 200, EditorGUIUtility.singleLineHeight), "Base destination: ");
-            EditorGUI.PropertyField(new Rect(rect.x + 400, rect.y, 200, EditorGUIUtility.singleLineHeight), homeDest, GUIContent.none);
-
             EditorGUI.LabelField(new Rect(rect.x + 630, rect.y, 120, EditorGUIUtility.singleLineHeight),"Wind: ");
             EditorGUI.PropertyField(new Rect(rect.x + 665, rect.y, 20, EditorGUIUtility.singleLineHeight), windBool, GUIContent.none);
 
@@ -155,9 +150,6 @@ public class FetchQuestManagerEditor : Editor
 
             EditorGUI.LabelField(new Rect(rect.x + 770, rect.y, 120, EditorGUIUtility.singleLineHeight),"Sun: ");
             EditorGUI.PropertyField(new Rect(rect.x + 800, rect.y, 120, EditorGUIUtility.singleLineHeight), sunBool, GUIContent.none);
-
-
-
         }
     }
 
