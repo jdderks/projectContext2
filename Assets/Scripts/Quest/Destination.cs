@@ -12,13 +12,13 @@ public class Destination : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI destinationText;
-    [SerializeField]
+
     private bool playerIsHere;
 
     public bool hasSunlight;
     public bool hasWind;
     public bool hasWater;
-
+    [Space]
     [SerializeField]
     private Image waterImg;
     [SerializeField]
