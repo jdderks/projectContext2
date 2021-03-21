@@ -3903,6 +3903,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 1099571261045006585, guid: 6cca756b8f30a044c8ef2c439de04b94,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1099571261045006589, guid: 6cca756b8f30a044c8ef2c439de04b94,
         type: 3}
       propertyPath: m_Pivot.x
@@ -11781,6 +11786,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Destinations
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409065083280555886, guid: 13e0313163cd282439852b7089f96433,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7409065083280555887, guid: 13e0313163cd282439852b7089f96433,
         type: 3}
