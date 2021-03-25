@@ -78,9 +78,8 @@ public class FetchQuestManager : MonoBehaviour
                                 CurrentQuest.isLookingForWind == AllDestinations[i].hasWind &&
                                 CurrentQuest.isLookingForWater == AllDestinations[i].hasWater)
                             {
+                                AllDestinations[i].technologyObject.SetActive(true);
                                 CompleteQuest();
-
-
                                 break;
                             }
                         }

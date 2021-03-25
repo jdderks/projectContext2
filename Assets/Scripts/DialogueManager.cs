@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         StartDialogue("Hi my name is Joost and we welcome you to our organisation!n" +
-            "You can use the WASD keys to move around and you can use your mouse while holding left click to look around!n" +
+            "You can use the WASD keys to move and you can use your mouse while holding left click to look around!n" +
             "We are glad to see you stand strong to work for ocean sustainability.n" +
             "To complete your registration and become an official partner of our organisation, you should pick up our organisation's flag!n" +
             "You can use your minimap to find out where the Warehouse is.n" +

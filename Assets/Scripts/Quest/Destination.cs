@@ -37,6 +37,8 @@ public class Destination : MonoBehaviour
     public Sprite hasNoWindSprite;
     public Sprite hasNoSunSprite;
 
+    public GameObject technologyObject;
+
     //These variables will do something in the future.
     public Resources currentResource;
 
