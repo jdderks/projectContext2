@@ -8,6 +8,7 @@ public class BoatController : MonoBehaviour
     public Vector3 COM;
     [Space(15)]
     public float speed = 1.0f;
+    public float boostSpeed = 2.5f;
     public float steerSpeed = 1.0f;
     public float movementThresold = 10.0f;
 
@@ -33,6 +34,14 @@ public class BoatController : MonoBehaviour
         Balance();
         Movement();
         Steer();
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = boostSpeed;
+        } else
+        {
+            speed = 1f;
+        }
     }
 
     void Balance()
