@@ -11449,7 +11449,7 @@ PrefabInstance:
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].questName
-      value: Get the flag
+      value: Bring solar panels to a community!
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
@@ -11654,7 +11654,7 @@ PrefabInstance:
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].finishedEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
@@ -11679,7 +11679,7 @@ PrefabInstance:
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].finishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
@@ -11725,7 +11725,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Quests.Array.data[1].finishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 916706616}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[0].finishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -11789,7 +11789,7 @@ PrefabInstance:
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].finishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: StartDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
@@ -11825,7 +11825,7 @@ PrefabInstance:
     - target: {fileID: 1351459406930712009, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
       propertyPath: Quests.Array.data[1].finishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1351459406930712011, guid: 60ed64e81a5c2dd40b4d7a71729f03ca,
         type: 3}
