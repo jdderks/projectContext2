@@ -1,8 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+using UnityEngine.Events;
 
 [System.Serializable]
 public class FetchQuest
@@ -23,6 +22,8 @@ public class FetchQuest
     public List<Destination> destinations;
     public int currentDestinationNumber;
     public bool isDone;
+
+    public UnityEvent finishedEvent;
 
     public bool isLookingForWind = false;
     public bool isLookingForSunlight = false;

@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private FetchQuestManager questManager;
 
+    public GameObject dialoguePanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            currentQuestText.text = "No active quests.";
+            currentQuestText.text = "No active quests, go to the warehouse for more.";
         }
     }
 

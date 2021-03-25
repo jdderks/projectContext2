@@ -14,6 +14,7 @@ public class BoatController : MonoBehaviour
     public float uprightTorque = 1;
 
     Transform m_COM;
+
     float verticalInput;
     float movementFactor;
     float horizontalInput;

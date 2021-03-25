@@ -13,6 +13,9 @@ public class Destination : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI destinationText;
 
+    [SerializeField]
+    private bool isBase;
+
     private bool playerIsHere;
 
     public bool hasSunlight;
@@ -42,6 +45,7 @@ public class Destination : MonoBehaviour
 
     public string CommunityName { get => destinationName; set => destinationName = value; }
     public bool PlayerIsHere { get => playerIsHere; set => playerIsHere = value; }
+    public bool IsBase { get => isBase; set => isBase = value; }
 
     private void Awake()
     {
@@ -49,11 +53,18 @@ public class Destination : MonoBehaviour
         {
             destinationText.text = destinationName;
         }
-
+        if (waterImg != null)
+        {
         waterImg.sprite = hasWater ? hasWaterSprite : hasNoWaterSprite;
-        windImg.sprite = hasWind ? hasWindSprite : hasNoWindSprite;
-        sunImg.sprite = hasSunlight ? hasSunSprite : hasNoSunSprite;
-
+        }
+        if (windImg != null)
+        {
+            windImg.sprite = hasWind ? hasWindSprite : hasNoWindSprite;
+        }
+        if (sunImg != null)
+        {
+            sunImg.sprite = hasSunlight ? hasSunSprite : hasNoSunSprite;
+        }
 
 
     }

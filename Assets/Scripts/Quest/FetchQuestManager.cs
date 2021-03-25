@@ -31,6 +31,7 @@ public class FetchQuestManager : MonoBehaviour
     private void Update()
     {
         QuestProgress();
+        GetCurrentDestination();
     }
 
     private void QuestProgress()
@@ -65,7 +66,6 @@ public class FetchQuestManager : MonoBehaviour
                     break;
                 case FetchQuest.QuestTypes.Tutorial:
 
-
                     break;
                 case FetchQuest.QuestTypes.GoToCondition:
                     for (int i = 0; i < AllDestinations.Count; i++)
@@ -73,12 +73,14 @@ public class FetchQuestManager : MonoBehaviour
                         if (AllDestinations[i].PlayerIsHere)
                         {
                             Debug.Log("Looking for: Sun: " + CurrentQuest.isLookingForSunlight + " Wind: " + CurrentQuest.isLookingForWind + " Water: " + CurrentQuest.isLookingForWater);
-                            Debug.Log("Here be:          " + AllDestinations[i].hasSunlight    + " Wind: " + AllDestinations[i].hasWind    + " Water: " + AllDestinations[i].hasWater);
+                            Debug.Log("Here be:          " + AllDestinations[i].hasSunlight + " Wind: " + AllDestinations[i].hasWind + " Water: " + AllDestinations[i].hasWater);
                             if (CurrentQuest.isLookingForSunlight == AllDestinations[i].hasSunlight &&
                                 CurrentQuest.isLookingForWind == AllDestinations[i].hasWind &&
                                 CurrentQuest.isLookingForWater == AllDestinations[i].hasWater)
                             {
                                 CompleteQuest();
+
+
                                 break;
                             }
                         }
@@ -90,7 +92,21 @@ public class FetchQuestManager : MonoBehaviour
         }
     }
 
-    private FetchQuest GetNewAvailableQuest()
+    private void GetCurrentDestination()
+    {
+        if (currentQuest == null)
+        {
+            for (int i = 0; i < AllDestinations.Count; i++)
+            {
+                if (AllDestinations[i].PlayerIsHere)
+                {
+                    currentQuest = GetNewRandomAvailableQuest();
+                }
+            }
+        }
+    }
+
+    private FetchQuest GetNewRandomAvailableQuest()
     {
         List<FetchQuest> availableQuests = new List<FetchQuest>();
 
@@ -101,12 +117,18 @@ public class FetchQuestManager : MonoBehaviour
                 availableQuests.Add(Quests[i]);
             }
         }
+        if (availableQuests.Count == 0 || availableQuests.Count < 0)
+        {
+            Debug.Log("No Available Quests!");
+            return null;
+        }
         return availableQuests[Random.Range(0, availableQuests.Count)];
     }
 
     private void CompleteQuest()
     {
         currentQuest.isDone = true;
+        currentQuest.finishedEvent.Invoke();
         currentQuest = null;
     }
 
