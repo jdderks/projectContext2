@@ -98,7 +98,7 @@ public class FetchQuestManager : MonoBehaviour
         {
             for (int i = 0; i < AllDestinations.Count; i++)
             {
-                if (AllDestinations[i].PlayerIsHere)
+                if (AllDestinations[i].PlayerIsHere && AllDestinations[i].IsBase)
                 {
                     currentQuest = GetNewRandomAvailableQuest();
                 }

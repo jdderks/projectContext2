@@ -65,13 +65,6 @@ public class Destination : MonoBehaviour
         {
             sunImg.sprite = hasSunlight ? hasSunSprite : hasNoSunSprite;
         }
-
-
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -89,5 +82,4 @@ public class Destination : MonoBehaviour
             playerIsHere = false;
         }
     }
-
 }

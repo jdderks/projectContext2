@@ -581,7 +581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationName: HomeBase
   destinationText: {fileID: 7571308165959146303}
-  playerIsHere: 0
+  isBase: 0
   hasSunlight: 0
   hasWind: 0
   hasWater: 0
@@ -608,8 +608,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.6080072, y: 3.671381, z: 3.0458755}
-  m_Center: {x: -0.22297744, y: -4.077244, z: 9.894481}
+  m_Size: {x: 11.65944, y: 3.671381, z: 7.5330353}
+  m_Center: {x: -0.22297744, y: -4.077244, z: 6.23}
 --- !u!64 &2328175204961986448
 MeshCollider:
   m_ObjectHideFlags: 0

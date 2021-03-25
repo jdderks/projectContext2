@@ -46,7 +46,6 @@ public class DialogueManager : MonoBehaviour
                 {
                     dialogueText.text = "";
                 }
-                Debug.Log(s);
             }
             yield return new WaitForSeconds(0.05f);
         }
